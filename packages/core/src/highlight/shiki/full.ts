@@ -16,7 +16,8 @@ export const defaultShikiFactory = createShikiFactory({
 /** factory using the WASM powered Regex engine */
 export const wasmShikiFactory = createShikiFactory({
   async init(options) {
-    const { createHighlighter, createOnigurumaEngine } = await import('shiki');
+    const { createHighlighter } = await import('shiki');
+    const { createOnigurumaEngine } = await import('shiki/engine/oniguruma');
 
     return createHighlighter({
       langs: [],
